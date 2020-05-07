@@ -8,35 +8,51 @@ console.log(fifaData);
 
 // (a) Home Team name for 2014 world cup final
 
-console.log();
+let daBest = fifaData.filter(
+  (match) => match.Year === 2014 && match.Stage === "Final"
+);
+
+console.log(daBest[0]["Home Team Name"]);
 
 // (b) Away Team name for 2014 world cup final
-// console.log();
+
+console.log(daBest[0]["Away Team Name"]);
 
 // (c) Home Team goals for 2014 world cup final
-// console.log();
+
+console.log(daBest[0]["Home Team Goals"]);
 
 // (d) Away Team goals for 2014 world cup final
-// console.log();
+
+console.log(daBest[0]["Away Team Goals"]);
 
 // (e) Winner of 2014 world cup final
-// console.log();
 
-/* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
+/* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an 
+array of objects with only finals data */
 
-function getFinals(/* code here */) {
-  /* code here */
+function getFinals(data) {
+  let daOtherBest = data.filter((match) => match.Stage === "Final");
+  return daOtherBest;
 }
 
-/* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
+console.log(getFinals(fifaData));
+/* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, 
+and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(/* code here */) {
-  /* code here */
+function getYears(callMeBaby) {
+  const finals = callMeBaby(fifaData);
+
+  let finalYear = finals.map((years) => years["Year"]);
+
+  return finalYear;
 }
 
-getYears();
+console.log(getYears(getFinals));
 
-/* Task 5: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */
+/* Task 5: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()`
+ and determine the winner (home or away) of each `finals` game. Return the name of all winning countries 
+ in an array called `winners` */
 
 function getWinners(/* code here */) {
   /* code here */
